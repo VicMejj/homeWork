@@ -10,7 +10,7 @@
 
 
 
-        <table class="table">
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th>Nom</th>
@@ -43,7 +43,12 @@
         <a href="{{ route('categories.create') }}" class="btn btn-primary">Add Category</a>
 
         @if(session('success'))
-            <div class="alert alert-success">{{ session('success') }}</div>
-        @endif
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+
+
     </div>
 @endsection

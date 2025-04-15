@@ -16,7 +16,7 @@ use App\Http\Controllers\CategoryController; // Add this if missing
 */
 
 // Read - Display all categories
-Route::get('/', [CategoryController::class, 'index'])->name('categories.index');
+Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
 
 // Create - Show form to add a category
 Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');

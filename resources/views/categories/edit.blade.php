@@ -10,10 +10,9 @@
     <!-- Your form fields here -->
     <input type="text" name="Nom_catégorie" value="{{ $category->Nom_catégorie }}">
     <textarea name="Description">{{ $category->Description }}</textarea>
-    <input type="date" name="Date_ajout" value="{{ $category->Date_ajout }}">
     <input type="text" name="Statut" value="{{ $category->Statut }}">
 
-    <button type="submit">Update Category</button>
+    <button type="submit" class="btn btn-primary">Update Category</button>
 </form>
 
     </div>

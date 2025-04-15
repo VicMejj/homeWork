@@ -7,10 +7,12 @@ use App\Models\Category;
 class CategoryController extends Controller
 {
     // Display all categories (Read)
-    public function index() {
-        $categories = Category::all(); // Fetch all categories
-        return view('categories.index', compact('categories')); // Pass categories to view
-    }
+    public function index()
+{
+    $categories = Category::all();  // Get all categories
+    return view('categories.index', compact('categories'));  // Pass data to view
+}
+
     
     // Show form to create a category
     public function create()
@@ -19,16 +21,32 @@ class CategoryController extends Controller
     }
 
     // Store a new category in the database (Create)
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
+        // Validate incoming data
+        $request->validate([
+            'Nom_categorie' => 'required|string|max:255',
+            'Description' => 'nullable|string',
+            'Statut' => 'required|string|max:255',
+        ]);
+        // Create and save the new category
         Category::create([
-            'Nom_catégorie' => $request->input('Nom_catégorie'), // FIXED
-            'Description' => $request->input('Description'), 
-            'Date_ajout' => $request->input('Date_ajout'), 
-            'Statut' => $request->input('Statut')
+            'Nom_catégorie' => $request->Nom_categorie,
+            'Description' => $request->Description,
+            'Statut' => $request->Statut,
         ]);
     
+        // Redirect to the categories list with a success message
         return redirect()->route('categories.index')->with('success', 'Category added successfully!');
     }
+    
+
+    
+
+
+
+
+
     
 
     // Show the edit form (Update)
